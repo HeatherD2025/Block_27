@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function SignUpForm ({token, setToken}) {
     const [username, setUsername] = useState ("");
@@ -38,8 +39,7 @@ return (
 
             <form method="POST" onSubmit={handleSubmit} >
                 <label>
-                    Username: 
-                    <input 
+                    Username: <input 
                         value={username}
                         onChange={((e) => {
                             setUsername(e.target.value);
@@ -52,7 +52,7 @@ return (
                             setPassword(e.target.value);
                         })}/>
                 </label>
-                <button>submit</button>
+                <button className="btn btn-outline-success">submit</button>
             </form>
         </div>
     </>

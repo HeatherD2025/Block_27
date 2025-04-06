@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function Authenticate ({token}) {
@@ -30,7 +31,7 @@ export default function Authenticate ({token}) {
               <h2>Authenticate</h2>
               {successMessage && <p>{successMessage}</p>}
               {error && <p>an error occured: {error}</p>}
-              <button onClick={handleClick}>Authenticate Token!</button>
+              <button onClick={handleClick} className="btn btn-outline-success">Authenticate Token!</button>
             
       </div>
     );
