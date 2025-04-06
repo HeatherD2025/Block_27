@@ -16,9 +16,9 @@ export default function Authenticate ({token}) {
             }); 
         
             const result=await response.json();
-            // if (response.ok === false) {
-            //     throw new Error(result.message) 
-            // }   
+            if (response.ok === false) {
+                throw new Error(result.message) 
+            }   
                 setSuccessMessage(result.message)
             } catch(error) {
                 setError(error.message)
@@ -26,7 +26,7 @@ export default function Authenticate ({token}) {
   
     }
     return (
-      <div>
+      <div className="formLayout">
               <h2>Authenticate</h2>
               {successMessage && <p>{successMessage}</p>}
               {error && <p>an error occured: {error}</p>}

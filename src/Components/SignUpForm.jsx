@@ -5,6 +5,10 @@ export default function SignUpForm ({token, setToken}) {
     const [password, setPassword] = useState ("");
     const [error, setError] = useState (null);
     const [successMessage, setSuccessMessage] = useState(null);
+    const [inputFields, setInputFields] = useState({
+        email: "",
+        password: "",
+      });
 
 async function handleSubmit(event) {
         event.preventDefault();
@@ -27,28 +31,30 @@ async function handleSubmit(event) {
       }
 return (
     <>
+        <div className="formContainer">
             <h2>Sign Up</h2>
-            {successMessage && <p>{successMessage}</p>}
+            {successMessage && <p>{successMessage} Welcome {username}!</p>}
             {error && <p>{error}</p>}
 
-        <form method="POST" onSubmit={handleSubmit} >
-            <label>
-                Username: 
-                <input 
-                    value={username}
-                    onChange={((e) => {
-                        setUsername(e.target.value);
-                    })}/>
-            </label>
-            <label>
-                Password: <input 
-                    value={password}
-                    onChange={((e) => {
-                        setPassword(e.target.value);
-                    })}/>
-            </label>
-            <button>submit</button>
-        </form>
+            <form method="POST" onSubmit={handleSubmit} >
+                <label>
+                    Username: 
+                    <input 
+                        value={username}
+                        onChange={((e) => {
+                            setUsername(e.target.value);
+                        })}/>
+                </label>
+                <label>
+                    Password: <input 
+                        value={password}
+                        onChange={((e) => {
+                            setPassword(e.target.value);
+                        })}/>
+                </label>
+                <button>submit</button>
+            </form>
+        </div>
     </>
 )
 }
